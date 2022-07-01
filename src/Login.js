@@ -1,6 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { createUser } from './services/userAPI';
+import Loading from './Carregando';
 
 class Login extends React.Component {
   constructor() {
@@ -40,10 +41,11 @@ class Login extends React.Component {
 
   render() {
     const { disabledBol, status, loading } = this.state;
-    // if (loading) return 'Carregando...';
+    if (loading) return <Loading />;
+    // if (status === 'OK') return <Redirect to="/search" />;
     return (
       <div>
-        { loading ? 'Carregando...' : '' }
+        {/* { loading ? 'Carregando...' : '' } */}
         { status ? (<Redirect to="/search" />
         ) : (
           <div data-testid="page-login">
