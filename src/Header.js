@@ -23,8 +23,8 @@ class Header extends React.Component {
   render() {
     const { user, loading } = this.state;
     return (
-      <header data-testid="header-component" onLoad={ this.userContainer }>
-        { loading ? <h1>Carregando...</h1> : <h1>{user}</h1>}
+      <header data-testid="header-component">
+        { loading ? <h1>Oi</h1> : <h1>{user}</h1>}
       </header>
     );
   }
