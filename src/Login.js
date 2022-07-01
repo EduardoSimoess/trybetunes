@@ -32,7 +32,7 @@ class Login extends React.Component {
     this.setState({ loading: true });
     const { name } = this.state;
     const obj = { name };
-    await createUser(obj);
+    // await createUser(obj);
     const user = await createUser(obj);
     console.log(user);
     this.setState({ status: user });
