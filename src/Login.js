@@ -10,6 +10,7 @@ class Login extends React.Component {
       disabledBol: true,
       name: '',
       status: undefined,
+      loading: false,
     };
     this.ableLogin = this.ableLogin.bind(this);
     this.container = this.container.bind(this);
@@ -27,21 +28,22 @@ class Login extends React.Component {
   }
 
   async container() {
-    this.setState({ status: 'Carregando' });
+    this.setState({ loading: true });
     const { name } = this.state;
     const obj = { name };
     await createUser(obj);
     const user = await createUser(obj);
     console.log(user);
     this.setState({ status: user });
+    this.setState({ loading: false });
   }
 
   render() {
-    const { disabledBol, status } = this.state;
-    if (status === 'Carregando') return 'Carregando...';
-    // if (status === 'OK') return <Redirect to="/search" />;
+    const { disabledBol, status, loading } = this.state;
+    // if (loading) return 'Carregando...';
     return (
       <div>
+        { loading ? 'Carregando...' : '' }
         { status ? (<Redirect to="/search" />
         ) : (
           <div data-testid="page-login">
