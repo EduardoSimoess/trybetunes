@@ -38,7 +38,7 @@ class Album extends React.Component {
         <p data-testid="artist-name">{artistDetail.artistName}</p>
         <p data-testid="album-name">{artistDetail.collectionName}</p>
         { music.map((song, index) => (
-          <MusicCard { ...song } key={ index } />
+          <MusicCard value={ song } key={ index } />
         ))}
       </div>
     );
