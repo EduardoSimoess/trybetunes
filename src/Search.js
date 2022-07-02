@@ -14,6 +14,8 @@ class Search extends React.Component {
       loading: false,
       albuns: [],
       notFound: false,
+      artist: '',
+      print: false,
     };
     this.ableSearch = this.ableSearch.bind(this);
     this.search = this.search.bind(this);
@@ -25,6 +27,7 @@ class Search extends React.Component {
     const { value } = target;
     const min = 2;
     this.setState({ music: value });
+    this.setState({ artist: value });
     if (value.length >= min) {
       this.setState({ disabledBol: false });
     } else {
@@ -33,12 +36,17 @@ class Search extends React.Component {
   }
 
   async search() {
+    const { music, albuns, notFound, artist } = this.state;
+    console.log(artist);
     this.setState({ loading: true });
-    const { music, albuns } = this.state;
     const response = await searchAlbumsAPI(music);
     console.log(response);
     this.setState({ music: '' });
     this.setState({ albuns: response }, this.conditional);
+    if (notFound === false) {
+      this.setState({ print: true });
+    }
+    console.log(artist);
     console.log(albuns.length);
     this.setState({ disabledBol: true });
     this.setState({ loading: false });
@@ -54,7 +62,7 @@ class Search extends React.Component {
   }
 
   render() {
-    const { disabledBol, music, loading, albuns, notFound } = this.state;
+    const { disabledBol, music, loading, albuns, notFound, print, artist } = this.state;
     return (
       <div data-testid="page-search">
         <Header />
@@ -75,6 +83,12 @@ class Search extends React.Component {
           Pesquisar
 
         </button>
+        { print ? (
+          <p>
+            {`Resultado de álbuns de: ${artist}`}
+          </p>
+        ) : (
+          '')}
         { notFound ? <p>Nenhum álbum foi encontrado</p> : ''}
         { loading ? <Loading /> : (
           albuns.map((album) => (
