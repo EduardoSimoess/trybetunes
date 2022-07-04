@@ -1,12 +1,126 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 import Header from './Header';
+import { updateUser, getUser } from './services/userAPI';
+import Loading from './Carregando';
 
 class ProfileEdit extends React.Component {
+  constructor() {
+    super();
+
+    this.state = ({
+      name: '',
+      email: '',
+      image: '',
+      description: '',
+      disable: true,
+      redirect: false,
+      loading: false,
+    });
+    this.saveData = this.saveData.bind(this);
+    this.save = this.save.bind(this);
+  }
+
+  async componentDidMount() {
+    this.setState({ loading: true });
+    const inicalData = await getUser();
+    const { name, email, image, description } = inicalData;
+    this.setState({ name });
+    this.setState({ image });
+    this.setState({ email });
+    this.setState({ description });
+    this.setState({ loading: false });
+  }
+
+  saveData({ target }) {
+    const { name, value } = target;
+    this.setState({ [name]: value }, this.ableButton);
+  }
+
+  ableButton() {
+    const { name, email, image, description } = this.state;
+    if (name.length > 0 && email.length > 0 && image.length > 0
+      && description.length > 0 && email.includes('@') && email.includes('.com')) {
+      this.setState({ disable: false });
+    } else {
+      this.setState({ disable: true });
+    }
+  }
+
+  async save() {
+    this.setState({ loading: true });
+    const { name, email, image, description } = this.state;
+    const obj = {
+      name,
+      email,
+      image,
+      description,
+    };
+    await updateUser(obj);
+    this.setState({ redirect: true });
+    this.setState({ loading: false });
+  }
+
   render() {
+    const { disable, redirect, name, email, description, image, loading } = this.state;
     return (
       <div data-testid="page-profile-edit">
         <Header />
-        <h1>ProfileEdit</h1>
+        { loading ? (<Loading />) : (
+          <div>
+            <label htmlFor="name">
+              Nome:
+              <input
+                type="text"
+                name="name"
+                onChange={ this.saveData }
+                value={ name }
+                data-testid="edit-input-name"
+              />
+            </label>
+            email:
+            <label htmlFor="email">
+              <input
+                type="text"
+                name="email"
+                onChange={ this.saveData }
+                value={ email }
+                data-testid="edit-input-email"
+              />
+            </label>
+            <label htmlFor="description">
+              Descição:
+              <input
+                type="text"
+                name="description"
+                onChange={ this.saveData }
+                value={ description }
+                data-testid="edit-input-description"
+              />
+            </label>
+            <label htmlFor="image">
+              Foto de Perfil:
+              <input
+                type="text"
+                name="image"
+                onChange={ this.saveData }
+                value={ image }
+                data-testid="edit-input-image"
+              />
+            </label>
+
+            <button
+              type="button"
+              disabled={ disable }
+              onClick={ this.save }
+              data-testid="edit-button-save"
+            >
+              Salvar
+
+            </button>
+          </div>
+        )}
+        { redirect ? <Redirect to="/profile" /> : '' }
       </div>
     );
   }
