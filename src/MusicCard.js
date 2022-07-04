@@ -10,6 +10,7 @@ class MusicCard extends React.Component {
     this.state = ({
       favorite: false,
       loading: false,
+      favSongs: [],
     });
     this.handleCheck = this.handleCheck.bind(this);
     this.fav = this.fav.bind(this);
@@ -27,9 +28,13 @@ class MusicCard extends React.Component {
     this.setState({ loading: false });
   }
 
-  handleCheck({ target }) {
+  async handleCheck({ target }) {
     const { checked } = target;
+    const { favSongs } = this.state;
     this.setState({ favorite: checked }, this.fav);
+    const favArray = await getFavoriteSongs();
+    this.setState({ favSongs: favArray });
+    console.log({ favSongs });
   }
 
   async fav() {
