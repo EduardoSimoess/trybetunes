@@ -21,19 +21,18 @@ class Favorites extends React.Component {
     this.setState({ loading: false });
   }
 
-  componentDidUpdate() {
-    console.log('oi');
-  }
-
   render() {
     const { favSongs, loading } = this.state;
     return (
       <div data-testid="page-favorites">
         <Header />
-        { loading ? (<Loading />)
-          : (favSongs.map((song, index) => (
-            <MusicCard value={ song } key={ index } />
-          ))) }
+        <p className="results">Your favorite songs:</p>
+        <div className="songs">
+          { loading ? (<Loading />)
+            : (favSongs.map((song, index) => (
+              <MusicCard value={ song } key={ index } />
+            ))) }
+        </div>
       </div>
     );
   }

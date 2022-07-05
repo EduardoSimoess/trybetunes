@@ -1,0 +1,16 @@
+.page-profile {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.profilePicture {
+  width: 200px;
+  padding: 50px 0px 10px;
+}
+
+.title {
+    margin: 0px;
+    font-size: 20px;
+    font-weight: 800;
+}

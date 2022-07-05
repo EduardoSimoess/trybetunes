@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Header from './Header';
 import searchAlbumsAPI from './services/searchAlbumsAPI';
 import Loading from './Carregando';
+import './search.css';
 
 class Search extends React.Component {
   constructor() {
@@ -64,47 +65,58 @@ class Search extends React.Component {
   render() {
     const { disabledBol, music, loading, albuns, notFound, print, artist } = this.state;
     return (
-      <div data-testid="page-search">
+      <div data-testid="page-search" className="page-search">
         <Header />
-        <label htmlFor="search" className="search">
-          <input
-            type="text"
-            data-testid="search-artist-input"
-            onChange={ this.ableSearch }
-            value={ music }
-          />
-        </label>
-        <button
-          type="button"
-          data-testid="search-artist-button"
-          disabled={ disabledBol }
-          onClick={ this.search }
-        >
-          Pesquisar
+        <div className="searchForm">
+          <div className="search">
+            <label htmlFor="search">
+              {/* <p className="buscar">Search</p> */}
+              <input
+                type="text"
+                data-testid="search-artist-input"
+                onChange={ this.ableSearch }
+                value={ music }
+                className="inputArtist"
+                placeholder="Search for a music, album or artist"
+              />
+            </label>
+            <button
+              type="button"
+              data-testid="search-artist-button"
+              disabled={ disabledBol }
+              onClick={ this.search }
+              className="searchButton"
+            >
+              Search
 
-        </button>
-        { print ? (
-          <p>
-            {`Resultado de álbuns de: ${artist}`}
-          </p>
-        ) : (
-          '')}
-        { notFound ? <p>Nenhum álbum foi encontrado</p> : ''}
-        { loading ? <Loading /> : (
-          albuns.map((album) => (
-            <div key={ album.collectionId }>
-              <img src={ album.artworkUrl100 } alt="Album cover" />
-              <h3>{ album.collectionName}</h3>
-              <p>{album.artistName}</p>
-              <Link
-                to={ `/album/${album.collectionId}` }
-                data-testid={ `link-to-album-${album.collectionId}` }
-              >
-                Detalhes do Album
+            </button>
+          </div>
+          { print ? (
+            <p className="results">
+              {`Resultado de álbuns de ${artist}`}
+            </p>
+          ) : (
+            '')}
+          { notFound ? <p className="results">Nenhum álbum foi encontrado</p> : ''}
+          <div className="albuns">
+            { loading ? <Loading /> : (
+              albuns.map((album) => (
+                <div key={ album.collectionId } className="album">
+                  <h3>{ album.collectionName}</h3>
+                  <img src={ album.artworkUrl100 } alt="Album cover" className="cover" />
+                  <p>{album.artistName}</p>
+                  <Link
+                    to={ `/album/${album.collectionId}` }
+                    data-testid={ `link-to-album-${album.collectionId}` }
+                    className="detailsLink"
+                  >
+                    Detalhes do Album
 
-              </Link>
-            </div>))
-        )}
+                  </Link>
+                </div>))
+            )}
+          </div>
+        </div>
       </div>
     );
   }

@@ -1,0 +1,87 @@
+body {
+/* background-image: url('https://brctecidos.com.br/wp-content/uploads/2019/05/Malha-Adis-cinza-escuro-Imagem.jpg'); */
+background-color: antiquewhite;
+}
+
+.page-search{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+.search {
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  gap: 30px;
+  margin: auto;
+  border-radius: 5px;
+}
+
+.inputArtist, .buscar, .results {
+  height: 30px;
+  width: 100%;
+  font-size: 30px;
+  font-weight: 800;
+  font-family: fantasy;
+  color: black;
+}
+
+.searchButton {
+    background-color: #2fc18c;
+    width: 200px;
+    margin: auto;
+}
+
+.results {
+    text-align: center;
+}
+
+.albuns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.album {
+    /* border: solid red 4px; */
+    /* background-image: url('https://dbdzm869oupei.cloudfront.net/img/photomural/preview/54975.png'); */
+    /* background-color: #d8d4d4; */
+    width: 20%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid rgb(59, 58, 58);
+    box-shadow: -10px -5px gray;
+    padding-bottom: 10px;
+    top: 0;
+    transition: top ease 0.5s;
+    background-color: white;
+}
+
+.album:hover {
+    top: -50px;
+}
+.cover {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  padding-top: 0px;
+}
+
+h3 {
+  font-size: 30px;
+}
+
+.detailsLink {
+    text-decoration: none;
+    color: black;
+}
+
+.detailsLink:hover {
+    text-decoration: none;
+    color: #2fc18c;
+}

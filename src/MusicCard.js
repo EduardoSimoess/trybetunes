@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { addSong, getFavoriteSongs, removeSong } from './services/favoriteSongsAPI';
 import Loading from './Carregando';
+import './album.css';
 
 class MusicCard extends React.Component {
   constructor() {
@@ -60,25 +61,33 @@ class MusicCard extends React.Component {
         {loading
           ? (<Loading />
           ) : (
-            <div>
-              <p>{trackName}</p>
-              <label htmlFor="favorite">
-                Favorita
-                <input
-                  type="checkbox"
-                  data-testid={ `checkbox-music-${trackId}` }
-                  onChange={ this.handleCheck }
-                  checked={ favorite }
-                />
-              </label>
-              <audio data-testid="audio-component" src={ previewUrl } controls>
-                <track kind="captions" />
-                O seu navegador não suporta o elemento
-                {' '}
-                {' '}
-                <code>audio</code>
-                .
-              </audio>
+            <div className="song">
+              <p className="trackName">{trackName}</p>
+              <div className="songCheck">
+                <audio data-testid="audio-component" src={ previewUrl } controls>
+                  <track kind="captions" />
+                  O seu navegador não suporta o elemento
+                  {' '}
+                  {' '}
+                  <code>audio</code>
+                  .
+                </audio>
+                <label htmlFor="favorite">
+                  <input
+                    type="checkbox"
+                    data-testid={ `checkbox-music-${trackId}` }
+                    id="coração"
+                    onChange={ this.handleCheck }
+                    checked={ favorite }
+                  />
+                </label>
+                {/* <input type="checkbox" id="coracao" />
+                <label htmlFor="coracao">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#19b425">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                  </svg>
+                </label> */}
+              </div>
             </div>)}
       </div>
     );

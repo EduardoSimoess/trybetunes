@@ -1,0 +1,59 @@
+.loginBody {
+  background-color: #2fc18c;
+  font-family: fantasy;
+  font-size: 25px;
+  height: 947px;
+}
+
+.page {
+  display: flex;
+  justify-content: space-around;
+}
+
+form {
+  align-content: center;
+  display: flex;
+  padding: 60px 0px 60px;
+  flex-direction: column;
+  align-items: center;
+  width: 25%;
+  margin-top: 350px;
+  gap: 30px;
+  border-radius: 10px;
+  background-color: white;
+}
+
+
+.login, .password {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 60%;
+}
+
+.login, .password, .textInput {
+  color: #444b54;
+  font-family: fantasy;
+  font-weight: 1000;
+}
+
+.textInput {
+  border-radius: 5px;
+  height: 30px;
+}
+
+button {
+  border-radius: 2px;
+  font-size: 20px;
+  padding: 5px 7px;
+  color: white;
+}
+
+.buttonLogin {
+    background-color: #042bbc;
+}
+
+.loginImg {
+  height: 370px;
+  padding-top: 200px;
+}

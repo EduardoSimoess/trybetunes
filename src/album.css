@@ -1,0 +1,51 @@
+.songs {
+  gap: 50px;
+  margin: auto;
+  padding: 0px 100px;
+}
+
+.songs, .songCheck {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.songCheck {
+    gap: 10px;
+    align-items: center;
+}
+
+.song {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 0px 40px;
+}
+
+.trackName {
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.pageAlbum {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+label{ cursor: pointer;}
+#coracao { display: none;}
+#coracao:checked+label>svg {
+    animation: preencher;
+    animation-duration: .5s;
+    animation-fill-mode: forwards;
+}
+@keyframes preencher {
+    0% {
+        fill: transparent;
+    }
+    100% {
+        fill: #19b425;
+    }
+}

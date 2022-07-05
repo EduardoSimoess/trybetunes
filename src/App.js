@@ -7,6 +7,7 @@ import Favorites from './Favorites';
 import Profile from './Profile';
 import ProfileEdit from './ProfileEdit';
 import NotFound from './NotFound';
+// import './index.css';
 
 class App extends React.Component {
   render() {

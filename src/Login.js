@@ -2,6 +2,7 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { createUser } from './services/userAPI';
 import Loading from './Carregando';
+import './login.css';
 
 class Login extends React.Component {
   constructor() {
@@ -32,7 +33,6 @@ class Login extends React.Component {
     this.setState({ loading: true });
     const { name } = this.state;
     const obj = { name };
-    // await createUser(obj);
     const user = await createUser(obj);
     console.log(user);
     this.setState({ status: user });
@@ -42,13 +42,11 @@ class Login extends React.Component {
   render() {
     const { disabledBol, status, loading } = this.state;
     if (loading) return <Loading />;
-    // if (status === 'OK') return <Redirect to="/search" />;
     return (
-      <div>
-        {/* { loading ? 'Carregando...' : '' } */}
+      <div className="loginBody">
         { status ? (<Redirect to="/search" />
         ) : (
-          <div data-testid="page-login">
+          <div data-testid="page-login" className="page">
             <form>
               <label htmlFor="login" className="login">
                 User:
@@ -57,6 +55,17 @@ class Login extends React.Component {
                   id="login"
                   data-testid="login-name-input"
                   onChange={ this.ableLogin }
+                  className="textInput"
+                  placeholder="User"
+                />
+              </label>
+              <label htmlFor="password" className="password">
+                Password:
+                <input
+                  type="password"
+                  id="password"
+                  className="textInput"
+                  placeholder="Password"
                 />
               </label>
               <button
@@ -64,11 +73,13 @@ class Login extends React.Component {
                 data-testid="login-submit-button"
                 disabled={ disabledBol }
                 onClick={ this.container }
+                className="buttonLogin"
               >
                 Entrar
 
               </button>
             </form>
+            <img src="https://theme.zdassets.com/theme_assets/9633455/9814df697eaf49815d7df109110815ff887b3457.png" alt="trybe" className="loginImg" />
           </div>)}
       </div>
 

@@ -1,0 +1,42 @@
+.header {
+  width: 100%;
+}
+.header {
+    display: flex;
+    align-items: center;
+    background-color: black;
+    color: white;
+    font-weight: 1000;
+    justify-content: space-around;
+    border-bottom: #2fc18c solid 5px;
+    font-size: 30px;
+}
+
+.user {
+    width: 200px;
+    color: white;
+    display: flex;
+    gap: 30px;
+    padding-right: 30px;
+}
+
+.userPic {
+    width: 80px;
+    height: 80px;
+    padding: 0px;
+    border-radius: 50%;
+}
+
+.headerImg{
+    height: 100px;
+    padding: 0px;
+}
+
+.links {
+    text-decoration: none;
+    color: white;
+}
+
+.links:hover {
+    color: #2fc18c;
+}

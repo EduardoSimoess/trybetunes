@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { getUser } from './services/userAPI';
 import Loading from './Carregando';
+import './header.css';
 
 class Header extends React.Component {
   constructor() {
@@ -33,11 +34,36 @@ class Header extends React.Component {
         { loading
           ? (<Loading />
           ) : (
-            <div>
-              <p data-testid="header-user-name">{user}</p>
-              <Link to="/search" data-testid="link-to-search">Search</Link>
-              <Link to="/favorites" data-testid="link-to-favorites">Favorites</Link>
-              <Link to="/profile" data-testid="link-to-profile">Profile</Link>
+            <div className="header">
+              <img src="https://go.betrybe.com/hubfs/logo%20cortada%20branca.png" alt="trybe" className="headerImg" />
+              <Link
+                to="/search"
+                data-testid="link-to-search"
+                className="links"
+              >
+                Search
+
+              </Link>
+              <Link
+                to="/favorites"
+                data-testid="link-to-favorites"
+                className="links"
+              >
+                Favorites
+
+              </Link>
+              <Link
+                to="/profile"
+                data-testid="link-to-profile"
+                className="links"
+              >
+                Profile
+
+              </Link>
+              <div className="user">
+                <img src="https://media-exp1.licdn.com/dms/image/C4D03AQHi32K6PhDgZQ/profile-displayphoto-shrink_200_200/0/1616004234546?e=1662595200&v=beta&t=sbFey-dO-a3N9G2eY0hbOVthpir_qCIbiGkJHOR4wKw" alt="Usuário" className="userPic" />
+                <p data-testid="header-user-name" className="usersName">{user}</p>
+              </div>
             </div>)}
       </header>
     );
