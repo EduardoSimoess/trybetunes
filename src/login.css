@@ -31,7 +31,7 @@ form {
   width: 60%;
 }
 
-.login, .password, .textInput {
+.login, .password, .textInput, .login {
   color: #444b54;
   font-family: fantasy;
   font-weight: 1000;

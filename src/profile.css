@@ -1,16 +1,37 @@
-.page-profile {
+.page-profile, .input {
   display: flex;
   flex-direction: column;
+}
+
+.page-profile {
   gap: 80px;
 }
 
 .profilePicture {
   width: 200px;
-  padding: 50px 0px 10px;
+  padding: 20px 0px 10px;
 }
 
 .title {
     margin: 0px;
     font-size: 20px;
     font-weight: 800;
+}
+
+.edit {
+  text-decoration: none;
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #19b425;
+  border-radius: 5px;
+}
+
+.form {
+  margin: auto;
+}
+
+.page-profile-edit {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
 }

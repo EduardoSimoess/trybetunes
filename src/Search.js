@@ -110,7 +110,7 @@ class Search extends React.Component {
                     data-testid={ `link-to-album-${album.collectionId}` }
                     className="detailsLink"
                   >
-                    Detalhes do Album
+                    Album details
 
                   </Link>
                 </div>))

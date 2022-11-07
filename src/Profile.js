@@ -31,6 +31,7 @@ class Profile extends React.Component {
         { loading ? (<Loading />) : (
           <div>
             <div className="album">
+              <Link to="/profile/edit" className="edit">Editar perfil</Link>
               <img
                 src={ usersData.image }
                 alt="Profile"
@@ -43,7 +44,6 @@ class Profile extends React.Component {
               <p className="trackName">{`${usersData.email}`}</p>
               <p className="title">Description:</p>
               <p className="trackName">{`${usersData.description}`}</p>
-              <Link to="/profile/edit">Editar perfil</Link>
             </div>
           </div>
         )}

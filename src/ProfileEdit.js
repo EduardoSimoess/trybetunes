@@ -64,48 +64,52 @@ class ProfileEdit extends React.Component {
   render() {
     const { disable, redirect, name, email, description, image, loading } = this.state;
     return (
-      <div data-testid="page-profile-edit">
+      <div data-testid="page-profile-edit" className="page-profile-edit">
         <Header />
         { loading ? (<Loading />) : (
-          <div>
-            <label htmlFor="name">
-              Nome:
+          <form className="form">
+            <label htmlFor="name" className="input">
+              <p className="login">Name:</p>
               <input
                 type="text"
                 name="name"
                 onChange={ this.saveData }
                 value={ name }
                 data-testid="edit-input-name"
+                className="textInput"
               />
             </label>
-            email:
-            <label htmlFor="email">
+            <label htmlFor="email" className="input">
+              <p className="login">Email:</p>
               <input
                 type="text"
                 name="email"
                 onChange={ this.saveData }
                 value={ email }
                 data-testid="edit-input-email"
+                className="textInput"
               />
             </label>
-            <label htmlFor="description">
-              Descição:
+            <label htmlFor="description" className="input">
+              <p className="login">Descição:</p>
               <input
                 type="text"
                 name="description"
                 onChange={ this.saveData }
                 value={ description }
                 data-testid="edit-input-description"
+                className="textInput"
               />
             </label>
-            <label htmlFor="image">
-              Foto de Perfil:
+            <label htmlFor="image" className="input">
+              <p className="login">Profile picture:</p>
               <input
                 type="text"
                 name="image"
                 onChange={ this.saveData }
                 value={ image }
                 data-testid="edit-input-image"
+                className="textInput"
               />
             </label>
 
@@ -114,11 +118,12 @@ class ProfileEdit extends React.Component {
               disabled={ disable }
               onClick={ this.save }
               data-testid="edit-button-save"
+              className="buttonLogin"
             >
-              Salvar
+              Save
 
             </button>
-          </div>
+          </form>
         )}
         { redirect ? <Redirect to="/profile" /> : '' }
       </div>
