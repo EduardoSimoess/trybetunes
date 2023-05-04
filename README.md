@@ -1,37 +1,48 @@
-# Projeto Trybetunes!
+<h1>Projeto TrybeTunes</h1>
 
-<details>
-  <summary><strong>👨‍💻 Desenvolvimento</strong></summary><br />
+O TrybeTunes é uma aplicação front-end inspirada em provedores de música como o spotfy e o deezer!
 
-  O TrybeTunes é uma aplicação capaz de reproduzir músicas das mais variadas bandas e artistas, criar uma lista de músicas favoritas e editar o perfil da pessoa usuária logada. Essa aplicação é capaz de:
+<h2>Instalação</h2>
 
-  - Fazer login;
-  - Pesquisar por uma banda ou artista;
-  - Listar os álbuns disponíveis dessa banda ou artista;
-  - Visualizar as músicas de um álbum selecionado;
-  - Reproduzir uma prévia das músicas deste álbum;
-  - Favoritar e desfavoritar músicas;
-  - Ver a lista de músicas favoritas;
-  - Ver o perfil da pessoa logada;
-  - Editar o perfil da pessoa logada;
-</details>
+Para clonar o projeto é só colar a seguinte linha de comando no terminal:
+git clone git@github.com:EduardoSimoess/trybetunes.git.
+Em seguida é necessário instalar as dependências do projeto localmente:
+npm i.
+Por fim, para ver a aplicação rodando localmente basta usar:
+Npm start.
 
-<details>
-  <summary><strong>:memo: Habilidades</strong></summary><br />
+<h2>Desenvolvimento</h2>
 
-Neste projeto foram testadas as seguintes capacidades:
+A biblioteca escolhida para a construção do site foi o React.js, já que ela oferece recursos, que tornam o desenvolvimento muito mais simples, se comparado com o JS vanilla. Alguns dos recursos utilizados foram:
 
-- Fazer requisições e consumir dados vindos de uma `API`;
+ Ciclos de vida de um componente React;
 
-- Utilizar os ciclos de vida de um componente React;
+ A função ‘setState’ de forma a garantir que um determinado código só é executado após o estado ser atualizado;
 
-- Utilizar a função `setState` de forma a garantir que um determinado código só é executado após o estado ser atualizado
+O componente ‘BrowserRouter’;
 
-- Utilizar o componente `BrowserRouter` corretamente;
+Criar rotas, mapeando o caminho da URL com o componente correspondente, via ‘Route’;
 
-- Criar rotas, mapeando o caminho da URL com o componente correspondente, via `Route`;
+O ‘Switch’ do ‘React Router’
 
-- Utilizar o `Switch` do `React Router`
+Criar links de navegação na aplicação com o componente ’Link’.
 
-- Criar links de navegação na aplicação com o componente `Link`;
-</details>
+Vale dizer que os trechos de músicas encontradas no TrybeTunes são fruto do consumo da API de músicas do ITunes! 
+
+<h2>Funcionalidades</h2>
+
+ Realize o login apenas com um nome de sua preferência, que ficará salvo na página do perfil.
+  
+ Clique em buscar e procure por um álbum ou artista e então será mostrada uma lista com base na sua pesquisa.
+  
+Escolha um álbum e então poderá escutar e favoritar todas as músicas dele.
+
+ Na página de favoritos você poderá escutar todas as músicas que favoritou e removê-las se quiser.
+  
+ Na página de perfil será inicialmente mostrado o seu nome e um botão para editar as informações do seu perfil.
+
+Ao clicar no botão 'editar perfil' você poderá mudar seu nome e adicionar mais informações como email, descrição e o endereço web de uma imagem. Todas essas informações serão exibidas na página de perfil.
+
+
+
+
