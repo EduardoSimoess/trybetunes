@@ -6,15 +6,15 @@ O TrybeTunes é uma aplicação front-end inspirada em provedores de música com
 
 Para clonar o projeto é só colar a seguinte linha de comando no terminal:
 <br>
-- git clone git@github.com:EduardoSimoess/trybetunes.git.
+<span>- git clone git@github.com:EduardoSimoess/trybetunes.git.</span>
 <br>
 Em seguida é necessário instalar as dependências do projeto localmente:
 <br>
-- npm i.
+<span>- npm i.</span>
 <br>
 Por fim, para ver a aplicação rodando localmente basta usar:
 <br>
-- npm start.
+<span>- npm start.</span>
 <br>
 
 <h2>Desenvolvimento</h2>
